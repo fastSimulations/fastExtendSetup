@@ -1,0 +1,156 @@
+#!/bin/bash
+#------------------------------------------------------------------------------
+# =========                 |
+# \\      /  F ield         | foam-extend: Open Source CFD
+#  \\    /   O peration     |
+#   \\  /    A nd           | For copyright notice see file Copyright
+#    \\/     M anipulation  |
+#------------------------------------------------------------------------------
+# License
+#     This file is part of foam-extend.
+#
+#     foam-extend is free software: you can redistribute it and/or modify it
+#     under the terms of the GNU General Public License as published by the
+#     Free Software Foundation, either version 3 of the License, or (at your
+#     option) any later version.
+#
+#     foam-extend is distributed in the hope that it will be useful, but
+#     WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#     General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with foam-extend.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Script
+#     AllMake.stage3
+#
+# Description
+#     Build script for ThirdParty packages: Stage3
+#
+#     The ThirdParty libraries
+#
+# Requirements:
+#     1: Your foam-extend environment must be properly initialized
+#     2: AllMake.stage1 if you are overriding your system compiler
+#     3: AllMake.stage2 if you are overriding your system comm. libraries
+#
+# Author:
+#     Martin Beaudoin, Hydro-Quebec, (2010)
+#
+#------------------------------------------------------------------------------
+# run from third-party directory only
+cd ${0%/*} || exit 1
+
+wmakeCheckPwd "$WM_THIRD_PARTY_DIR" || {
+    echo "Error: Current directory is not \$WM_THIRD_PARTY_DIR"
+    echo "    The environment variables are inconsistent with the installation."
+    echo "    Check the foam-extend entries in your dot-files and source them."
+    exit 1
+}
+. tools/makeThirdPartyFunctionsForRPM
+#------------------------------------------------------------------------------
+
+echo ========================================
+echo Starting ThirdParty AllMake: Stage3
+echo ========================================
+echo
+
+# Metis
+if [ -z "$METIS_SYSTEM" ]
+then
+    ( rpm_make -p metis-5.1.0 -s metis-5.1.0.spec )
+else
+    echo "Using system installed Metis"
+    echo ""
+fi
+
+# ParMGridGen
+if [ -z "$PARMGRIDGEN_SYSTEM" ]
+then
+    #( rpm_make -p ParMGridGen-1.0 -s ParMGridGen-1.0.spec -u http://www.mgnet.org/mgnet/Codes/parmgridgen/ParMGridGen-1.0.tar.gz       )
+    ( rpm_make -p ParMGridGen-1.0 -s ParMGridGen-1.0.spec )
+else
+    echo "Using system installed ParMGridGen"
+    echo ""
+fi
+
+# Libccmio
+if [ -z "$LIBCCMIO_SYSTEM" ]
+then
+    ( rpm_make -p libccmio-2.6.1 -s libccmio-2.6.1.spec )
+else
+    echo "Using system installed Libccmio"
+    echo ""
+fi
+
+# Mesquite
+if [ -z "$MESQUITE_SYSTEM" ]
+then
+    ( rpm_make -p mesquite-2.1.2 -s mesquite-2.1.2.spec )
+else
+    echo "Using system installed Mesquite"
+    echo ""
+fi
+
+# The following three packages depends on the availability of OpenMPI
+# The macro rpm_make() will make sure to update the ThirdParty environment variables before starting
+# the compilation.
+# Just make sure the OpenMPI environment variables are properly initialized, or that
+# the AllMake.stage2 script completed correctly
+#
+# Scotch
+if [ -z "$SCOTCH_SYSTEM" ]
+then
+    ( rpm_make -p scotch-6.0.0 -s scotch-6.0.0.spec )
+else
+    echo "Using system installed Scotch"
+    echo ""
+fi
+
+# ParMetis
+if [ -z "$PARMETIS_SYSTEM" ]
+then
+    ( rpm_make -p parmetis-4.0.3 -s parmetis-4.0.3.spec )
+else
+    echo "Using system installed ParMetis"
+    echo ""
+fi
+
+## Zoltan
+#if [ -z "$ZOLTAN_SYSTEM" ]
+#then
+#    ( rpm_make -p zoltan-3.6 -s zoltan-3.6.spec -u http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.6.tar.gz )
+#else
+#    echo "Using system installed Zoltan"
+#    echo ""
+#fi
+
+# PyFoam
+if [ -z "$PYFOAM_SYSTEM" ]
+then
+#   ( rpm_make -p PyFoam-0.5.6 -s PyFoam-0.5.6.spec  -u http://openfoamwiki.net/images/b/b8/PyFoam-0.5.6.tar.gz -n PyFoam-0.5.6-1.noarch -a noarch)
+#   ( rpm_make -p PyFoam-0.5.7 -s PyFoam-0.5.7.spec  -u http://openfoamwiki.net/images/d/dc/PyFoam-0.5.7.tar.gz -n PyFoam-0.5.7-1.noarch -a noarch)
+#   ( rpm_make -p PyFoam-0.6.1 -s PyFoam-0.6.1.spec  -u http://openfoamwiki.net/images/3/33/PyFoam-0.6.1.tar.gz -n PyFoam-0.6.1-1.noarch -a noarch)
+#   ( rpm_make -p PyFoam-0.6.2 -s PyFoam-0.6.2.spec  -u http://openfoamwiki.net/images/8/89/PyFoam-0.6.2.tar.gz -n PyFoam-0.6.2-1.noarch -a noarch)
+    ( rpm_make -p PyFoam-0.6.3 -s PyFoam-0.6.3.spec )
+else
+    echo "Using system installed PyFoam"
+    echo ""
+fi
+
+# hwloc
+if [ -z "$HWLOC_SYSTEM" ]
+then
+    ( rpm_make -p hwloc-1.7.2 -s hwloc-1.7.2.spec )
+else
+    echo "Using system installed hwloc"
+    echo ""
+fi
+
+echo ========================================
+echo Done ThirdParty AllMake: Stage3
+echo ========================================
+echo
+
+# ----------------------------------------------------------------- end-of-file
