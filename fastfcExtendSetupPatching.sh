@@ -10,17 +10,23 @@ echo "Download Foam Extend 3.1"
 echo
 
 mkdir $HOME/foam >/dev/null 3>&1
-cd $HOME/foam
-tar xvzf $HOME/fastExtendSetup/EXTEND-3.1/foam-extend-3.1.tar.gz -C $HOME/foam/.
-
+echo "Extracting FOAM Extend 3.1"
+tar xzf $HOME/fastExtendSetup/EXTEND-3.1/foam-extend-3.1.tar.gz -C $HOME/foam/.
+echo "Done"
 #git clone http://git.code.sf.net/p/openfoam-extend/foam-extend-3.1 foam-extend-3.1
 
 echo 
 echo "Appending scripts to bashrc"
 echo
 
-cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions >> $HOME/.bashrc
-cp $HOME/fastExtendSetup/fastfcBASHRC/extendBASHRC $HOME/.extendBASHRC >/dev/null 3>&1
+if grep -qFf $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions $HOME/.bashrc 
+then 	
+	echo "BASHRC Additions Already Found"
+else
+	echo "BASHRC Additions Not Found, ADDING"
+	cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions >> $HOME/.bashrc
+	cp $HOME/fastExtendSetup/fastfcBASHRC/extendBASHRC $HOME/.extendBASHRC > /dev/null 3>&1
+fi
 
 source $HOME/.bashrc
 
