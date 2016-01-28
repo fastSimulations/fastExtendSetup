@@ -65,35 +65,36 @@ echo
 
 cd $WM_THIRD_PARTY_DIR
 
-./AllMake.stage1 | tee stage1.compile.log
+./AllMake.stage1 | tee $HOME/fastExtendSetup/logs/stage1.compile.log
 echo 
 echo "Compiled Stage 1"
 echo
 
-./AllMake.stage2 | tee stage2.compile.log
+./AllMake.stage2 | tee $HOME/fastExtendSetup/logs/stage2.compile.log
 echo 
 echo "Compiled Stage 2"
 echo
 
 source $HOME/.bashrc
 
-./AllMake.stage3 | tee stage3.compile.log
+./AllMake.stage3 | tee $HOME/fastExtendSetup/logs/stage3.compile.log
 echo 
 echo "Compiled Stage 3"
 echo
 
-./AllMake.stage4 | tee stage4.compile.log
+./AllMake.stage4 | tee $HOME/fastExtendSetup/logs/stage4.compile.log
 echo 
 echo "Compiled Stage 4"
 echo
 
-
-grep -r $WM_THIRD_PARTY_DIR/*.compile.log "error"
+grep -r $HOME/fastExtendSetup/logs/*.compile.log "error"
 
 source $HOME/.bashrc
 
 cd $WM_PROJECT_DIR
-./Allwmake.firstInstall | tee extend.compile.log
+./Allwmake.firstInstall | tee $HOME/fastExtendSetup/logs/extend.compile.log
+
+grep -r $HOME/fastExtendSetup/logs/extend.compile.log
 
 echo
 echo "Script Ended"
