@@ -50,3 +50,10 @@ Step (3):
 
 Review compilation logs to confirm a clean installation
 
+Step (4):
+
+Create the user directory, if it does not already exist
+
+cd $HOME/foam
+
+mkdir -p $FOAM_RUN

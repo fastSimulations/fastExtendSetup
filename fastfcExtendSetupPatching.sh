@@ -5,6 +5,8 @@ echo
 echo "Fast-FC Setup Script for Foam-Extend-3.1"
 echo
 
+rm $HOME/fastExtendSetup/logs/*.log
+
 echo
 echo "Download Foam Extend 3.1"
 echo
@@ -101,6 +103,15 @@ cd $WM_PROJECT_DIR
 ./Allwmake.firstInstall | tee $HOME/fastExtendSetup/logs/extend.compile.log
 
 grep -r $HOME/fastExtendSetup/logs/extend.compile.log
+
+echo
+echo "Creating User Directory"
+
+cd $HOME/foam
+mkdir -p $FOAM_RUN
+
+echo
+echo "Done"
 
 echo
 echo "Script Ended"
