@@ -46,7 +46,7 @@ sh fastfcExtendSetupPatching
 
 (D) Review output compilation
 
-Step (1):
+Step (3):
 
 Review compilation logs to confirm a clean installation
 
