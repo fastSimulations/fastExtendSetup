@@ -5,7 +5,7 @@ echo
 echo "Fast-FC Setup Script for Foam-Extend-3.1"
 echo
 
-rm $HOME/fastExtendSetup/logs/*.log
+rm $HOME/fastExtendSetup/logs/*.log > /dev/null 2>&1
 
 echo
 echo "Download Foam Extend 3.1"
@@ -38,8 +38,8 @@ echo
 
 cp -r $HOME/fastExtendSetup/extendGCC48/linux64Gcc48 $WM_PROJECT_DIR/wmake/rules/. >/dev/null 3>&1
 cd $WM_PROJECT_DIR
-git branch hotfix/gcc48
-git checkout hotfix/gcc48
+#git branch hotfix/gcc48
+#git checkout hotfix/gcc48
 
 
 echo
