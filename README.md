@@ -2,7 +2,8 @@
 Installation scripts for OpenSUSE 13.2, OpenSUSE Leap, OpenSUSE TUmbleweed and Foam-Extend-3.1
 
 *NOTE: THIS IS FOR OpenSUSE 13.2, OpenSUSE Leap, OpenSUSE Tumbleweed and Foam-Extend-3.1 ONLY
-       This file will add lines to .bashrc that need to be manually removed to revert to the original install
+
+This file will add lines to .bashrc that need to be manually removed to revert to the original install
 
 This document describes a series of steps in order to install Foam-Extend-3.1 on OpenSuse 13.2. 
 
