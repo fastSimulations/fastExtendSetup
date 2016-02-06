@@ -43,7 +43,7 @@ PATCHING, THIRD-PARTY PACKAGES & COMPILATION, FOAM-EXTEND-3.1 COMPILATION
 
 Step (1): 
 
-cd $HOME/fastfcExtendSetup
+cd $HOME/fastExtendSetup
 
 Step (2):
 
