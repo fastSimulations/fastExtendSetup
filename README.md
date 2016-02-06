@@ -26,6 +26,7 @@ REQUIRED OPENSUSE 13.2 PACKAGES
 Step (1): git mirror this repository in $HOME/.
 
 cd $HOME/.
+
 git clone https://github.com/fastSimulations/fastExtendSetup.git
 
 Step (2):
