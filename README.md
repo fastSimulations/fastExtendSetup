@@ -13,6 +13,8 @@ REMOVE OLD INSTALLATION OF 3.1
 
 (A) Remove any previous FOAM-Extend-3.1 Installation (IF NECESSARY)
 
+WARNING - ONLY DO THIS IF YOU HAVE BACKED UP YOUR PREVIOUS FOAM USER DIRECTORY AND DATA
+
 Step (1): 
 
 rm -rf $HOME/foam
@@ -21,13 +23,14 @@ REQUIRED OPENSUSE 13.2 PACKAGES
 
 (B) Installation of required packages and the GLFix
 
-Step (1):
+Step (1): git mirror this repository in $HOME/.
 
-git mirror this repository in $HOME/.
+cd $HOME/.
+git clone https://github.com/fastSimulations/fastExtendSetup.git
 
 Step (2):
 
-cd fastfcExtendSetup
+cd fastExtendSetup
 
 Step (3):
 
