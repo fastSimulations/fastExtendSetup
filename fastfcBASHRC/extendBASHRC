@@ -1,6 +1,6 @@
-export PATH=/usr/lib64/mpi/gcc/openmpi/bin/:$PATH
+export PATH=/usr/lib64/mpi/gcc/openmpi/bin/:$PATH 
 export LD_LIBRAR_PATH=/usr/lib64/mpi/gcc/openmpi/lib64/:$LD_LIBRAY_PATH
-source $HOME/foam/foam-extend-3.1/etc/bashrc
+source $HOME/foam/foam-extend-3.1/etc/bashrc > /dev/null 2>&1
 export QT_SELECT=qt4
 export QT_DIR=/usr
 export QT_BIN_DIR=$QT_DIR/bin
