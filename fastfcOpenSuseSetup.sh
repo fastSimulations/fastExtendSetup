@@ -32,6 +32,8 @@ neededPackages=(
 	libqt4-devel
 	libQtWebKit-devel 
 	python
+	paraview
+	python-matplotlib
 )
 bonusPackages=(
 	emacs 
@@ -54,10 +56,13 @@ for p in ${bonusPackages[@]}; do
     sudo zypper -n install $p
 done
 
-echo
-echo "Patching glxext.h in /usr/include/GL"
-sudo cp $HOME/fastExtendSetup/GLFix/glxext.h /usr/include/GL/.
-echo "		--- Done"
+#echo
+#echo "Patching glxext.h in /usr/include/GL"
+#sudo cp $HOME/fastExtendSetup/GLFix/glxext.h /usr/include/GL/.
+#echo "		--- Done"
 
 echo
 echo "Script Ended"
+echo "OpenSUSE setup completed"
+echo
+echo
