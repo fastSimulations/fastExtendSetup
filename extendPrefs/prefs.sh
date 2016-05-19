@@ -153,7 +153,7 @@ export QT_DIR=/usr
 export QT_BIN_DIR=$QT_DIR/bin
 
 # System installed ParaView
-#export PARAVIEW_SYSTEM=1
+export PARAVIEW_SYSTEM=1
 #export PARAVIEW_DIR=path_to_system_installed_paraview
 #export PARAVIEW_BIN_DIR=$PARAVIEW_DIR/bin
 
