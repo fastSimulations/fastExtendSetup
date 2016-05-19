@@ -100,7 +100,7 @@ grep -r $HOME/fastExtendSetup/logs/*.compile.log "error"
 source $HOME/.bashrc
 
 cd $WM_PROJECT_DIR
-./Allwmake.firstInstall | tee $HOME/fastExtendSetup/logs/extend.compile.log
+./Allwmake | tee $HOME/fastExtendSetup/logs/extend.compile.log
 
 grep -r $HOME/fastExtendSetup/logs/extend.compile.log
 
