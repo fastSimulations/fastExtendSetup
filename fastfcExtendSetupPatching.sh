@@ -107,8 +107,13 @@ grep -r $HOME/fastExtendSetup/logs/extend.compile.log
 echo
 echo "Creating User Directory"
 
-cd $HOME/foam
-mkdir -p $FOAM_RUN
+if [ -d "$FOAM_RUN"]
+then
+	echo "Foam user run directory already exists"
+else
+	cd $HOME/foam
+	mkdir -p $FOAM_RUN
+fi
 
 echo
 echo "Done"
