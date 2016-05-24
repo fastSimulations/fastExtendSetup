@@ -8,10 +8,24 @@ echo
 rm $HOME/fastExtendSetup/logs/*.log > /dev/null 2>&1
 
 echo
-echo "Download Foam Extend 3.1"
+echo "Entering Foam Extend 3.1 Setup"
 echo
 
-mkdir $HOME/foam >/dev/null 3>&1
+if [ -d "$HOME/foam" ]
+then
+	if [ -d "$HOME/foam/foam-extend-3.1" ]
+	then
+		echo "foam-extend-3.1 already exists, removing it"
+		rm -rf $HOME/foam/foam-extend-3.1
+		echo "foam-extend-3.1 successfully removed"
+	else
+		echo "No existing foam-extend-3.1 directory found, proceeding to next step"
+	fi
+else
+	echo "foam directory does not exist, creating it now"
+	mkdir $HOME/foam >/dev/null 3>&1
+fi
+
 echo "Extracting FOAM Extend 3.1"
 tar xzf $HOME/fastExtendSetup/EXTEND-3.1/foam-extend-3.1.tar.gz -C $HOME/foam/.
 echo "Done"
@@ -21,13 +35,15 @@ echo
 echo "Appending scripts to bashrc"
 echo
 
-if grep -qFf $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions $HOME/.bashrc 
+if grep -qFf $HOME/fastExtendSetup/fastfcBASHRC/bashrcExtendAdditions $HOME/.bashrc 
 then 	
-	echo "BASHRC Additions Already Found"
+	echo "BASHRC Extend Additions Already Found"
 else
-	echo "BASHRC Additions Not Found, ADDING"
-	cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions >> $HOME/.bashrc
+	echo "BASHRC Extend Additions Not Found, ADDING"
+	cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcExtendAdditions >> $HOME/.bashrc
 	cp $HOME/fastExtendSetup/fastfcBASHRC/extendBASHRC $HOME/.extendBASHRC > /dev/null 3>&1
+	echo
+	echo "Done"
 fi
 
 source $HOME/.bashrc
@@ -107,7 +123,7 @@ grep -r $HOME/fastExtendSetup/logs/extend.compile.log
 echo
 echo "Creating User Directory"
 
-if [ -d "$FOAM_RUN"]
+if [ -d "$FOAM_RUN" ]
 then
 	echo "Foam user run directory already exists"
 else
@@ -116,7 +132,7 @@ else
 fi
 
 echo
-echo "Done"
+echo "Process Complete, please advise developers if errors are encountered: support@fastsimulations.com"
 
 echo
 echo "Script Ended"
