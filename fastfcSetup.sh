@@ -32,12 +32,12 @@ else
 	echo "Done"
 	echo
 
-	if grep -qFf $WM_PROJECT_USER_DIR/FastFC/etc/bashrcAdditions $HOME/.extendBASHRC 
+	if grep -qFf $HOME/fastExtendSetup/fastfcBASHRC/bashrcFastfcAdditions $HOME/.extendBASHRC 
 	then 	
 		echo "Fast-FC BASHRC Additions Already Found in .extendBASHRC"
 	else
 		echo "Fast-FC BASHRC Additions Not Found in .extendBASHRC, ADDING:"
-		cat $WM_PROJECT_USER_DIR/FastFC/etc/bashrcAdditions >> $HOME/.extendBASHRC
+		cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcFastfcAdditions >> $HOME/.extendBASHRC
 		echo "Done"
 		echo
 	fi
