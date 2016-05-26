@@ -8,13 +8,32 @@ echo
 rm $HOME/fastExtendSetup/logs/*.log > /dev/null 2>&1
 
 echo
-echo "Download Foam Extend 3.1"
+echo "Entering Foam Extend 3.1 Setup"
 echo
+if [ -d "$HOME/foam" ]
+then
+	echo "Foam directory already exists, extracting FOAM-Extend to this directory"
+	echo
+	if [ -d "$HOME/foam/foam-extend-3.1" ]
+	then
+		echo "FOAM-Extend-3.1 directory already exists, this will be removed"
+		rm -rf $HOME/foam/foam-extend-3.1 >/dev/null 3>&1
+		echo
+		echo "Previous FOAM-Extend-3.1 installation has been removed"
+		echo
+	else
+		echo "No previous installation of FOAM-Extend-3.1 has been found, proceeding with installation"
+		echo
+	fi
+else
+	mkdir $HOME/foam >/dev/null 3>&1
+fi
 
-mkdir $HOME/foam >/dev/null 3>&1
 echo "Extracting FOAM Extend 3.1"
 tar xzf $HOME/fastExtendSetup/EXTEND-3.1/foam-extend-3.1.tar.gz -C $HOME/foam/.
+echo
 echo "Done"
+
 #git clone http://git.code.sf.net/p/openfoam-extend/foam-extend-3.1 foam-extend-3.1
 
 echo 
@@ -107,7 +126,7 @@ grep -r $HOME/fastExtendSetup/logs/extend.compile.log
 echo
 echo "Creating User Directory"
 
-if [ -d "$FOAM_RUN"]
+if [ -d "$FOAM_RUN" ]
 then
 	echo "Foam user run directory already exists"
 else
