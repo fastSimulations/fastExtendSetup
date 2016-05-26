@@ -32,14 +32,16 @@ neededPackages=(
 	libqt4-devel
 	libQtWebKit-devel 
 	python
-	paraview
 	python-matplotlib
+	python-devel
+	ffmpeg
+	mesa
+	libphonon4
 )
 bonusPackages=(
 	emacs 
-	csh 
-	tcsh 
-	zsh 
+	tcsh
+	zsh
 	gvim
 	gedit
 )

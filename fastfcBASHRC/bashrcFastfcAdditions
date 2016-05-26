@@ -1,0 +1,1 @@
+source $WM_PROJECT_USER_DIR/.fastfcBASHRC > /dev/null > 2>&1

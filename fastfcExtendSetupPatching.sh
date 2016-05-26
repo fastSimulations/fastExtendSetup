@@ -40,13 +40,15 @@ echo
 echo "Appending scripts to bashrc"
 echo
 
-if grep -qFf $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions $HOME/.bashrc 
+if grep -qFf $HOME/fastExtendSetup/fastfcBASHRC/bashrcExtendAdditions $HOME/.bashrc 
 then 	
-	echo "BASHRC Additions Already Found"
+	echo "BASHRC Extend Additions Already Found"
 else
-	echo "BASHRC Additions Not Found, ADDING"
-	cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcAdditions >> $HOME/.bashrc
+	echo "BASHRC Extend Additions Not Found, ADDING"
+	cat $HOME/fastExtendSetup/fastfcBASHRC/bashrcExtendAdditions >> $HOME/.bashrc
 	cp $HOME/fastExtendSetup/fastfcBASHRC/extendBASHRC $HOME/.extendBASHRC > /dev/null 3>&1
+	echo
+	echo "Done"
 fi
 
 source $HOME/.bashrc
@@ -135,7 +137,7 @@ else
 fi
 
 echo
-echo "Done"
+echo "Process Complete, please advise developers if errors are encountered: support@fastsimulations.com"
 
 echo
 echo "Script Ended"
