@@ -37,6 +37,9 @@ neededPackages=(
 	ffmpeg
 	mesa
 	libphonon4
+	freetype
+	python-numy
+	boost
 )
 bonusPackages=(
 	emacs 
