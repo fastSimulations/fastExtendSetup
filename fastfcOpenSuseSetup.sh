@@ -38,8 +38,8 @@ neededPackages=(
 	mesa
 	libphonon4
 	freetype
-	python-numy
-	boost
+	python-numpy
+	boost-devel
 )
 bonusPackages=(
 	emacs 
