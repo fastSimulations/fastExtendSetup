@@ -62,7 +62,6 @@ cd $WM_PROJECT_DIR
 #git branch hotfix/gcc48
 #git checkout hotfix/gcc48
 
-
 echo
 echo "Creating prefs.sh"
 echo
@@ -138,6 +137,5 @@ fi
 
 echo
 echo "Process Complete, please advise developers if errors are encountered: support@fastsimulations.com"
-
 echo
 echo "Script Ended"
